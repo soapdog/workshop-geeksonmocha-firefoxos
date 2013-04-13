@@ -533,6 +533,45 @@
       </div>
   </div>
 
+  <div id="workshop_call" class="slide shout">
+      <div>
+          <section>
+              <header>
+                  <h2>Vamos fazer um app?</h2>
+              </header>
+          </section>
+      </div>
+  </div>
+
+  <div id="requisitos" class="slide">
+      <div>
+          <section>
+              <header>
+                  <h2>Requisitos</h2>
+              </header>
+              <ol>
+                  <li>Baixar o Firefox Nightly em <a href="http://nightly.mozilla.org">http://nightly.mozilla.org</a>.</li>
+                  <li>
+                      Instalar o Simulador do Firefox OS.
+                      <ul>
+                          <li>Firefox em Inglês: Tools &rarr; Add-ons</li>
+                          <li>Firefox em Português: Ferramentas &rarr; Complementos</li>
+                      </ul>
+                  </li>
+                  <li>
+                      Utilizar um bom editor de textos como por exemplo:
+                      <ul>
+                          <li>Brackets (OSX/WIN): <a href="http://brackets.io/">http://brackets.io/</a>.</li>
+                          <li>SublimeText2 (OSX/WIN/LINUX): <a href="http://www.sublimetext.com/">http://www.sublimetext.com/</a>.</li>
+                      </ul>
+                  </li>
+              </ol>
+          </section>
+      </div>
+  </div>
+
+
+
   <div id="crossplataform" class="slide">
       <div>
           <section>
@@ -603,9 +642,18 @@
       socket.on('slideset', function (data) {
           console.log("received slideset");
           console.log(data);
+          // terrible hack below to force the user into slide mode
+          if (window.location.toString().indexOf("full") == -1) {
+              window.location = "http://" + window.location.host + "/?full";
+          }
           enterSlideMode();
           goToSlide(data.slide);
           socket.emit('setting slide to', { slide: data });
+      });
+      socket.on('openurl', function(data){
+          console.log("received open url");
+          console.log(data);
+          window.open(data.url);
       });
 
   </script>

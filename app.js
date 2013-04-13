@@ -43,6 +43,12 @@ io.sockets.on('connection', function (socket) {
         console.log(data);
         socket.broadcast.emit('slideset', data);
     });
+
+    socket.on('masteropenurl', function (data) {
+        console.log("received master open url");
+        console.log(data);
+        socket.broadcast.emit('openurl', data);
+    });
 });
 
 
