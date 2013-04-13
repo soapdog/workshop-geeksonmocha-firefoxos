@@ -337,6 +337,31 @@ blockquote .quotesource {
 			content:'';
 			}
 
+/* Shoutinho */
+.slide.shoutinho section:before {
+    display:none;
+}
+.slide.shoutinho h2 {
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    text-align:center;
+    line-height:1;
+    font-size:80px;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%);
+}
+.slide.shoutinho h2 a[target=_blank] {
+    margin:0;
+}
+.slide.shoutinho h2 a[target=_blank]:after {
+    content:'';
+}
+
 /* Middle */
 .middle {
 	position:absolute;
